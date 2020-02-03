@@ -1,0 +1,51 @@
+
+<section class="registro">
+  <v-form v-model="validForm" id="myform">
+    <v-container>
+      <v-row>
+        <v-col cols="12" sm="4">
+          <v-text-field
+            label="correo"
+            single-line
+            :rules="nameRules"
+            v-model="email"
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" sm="4">
+          <v-text-field
+            label="password"
+            single-line
+            type="password"
+            v-model="data.password"
+            :rules="nameRules"
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" sm="4">
+          <v-text-field
+            label="repeat password"
+            single-line
+            type="password"
+            v-model="data.repeatPassword"
+            :rules="nameRules"
+          ></v-text-field>
+        </v-col>
+      </v-row>
+      <p>{{error}}</p>
+      <v-btn :disabled="!samePasswordComputed"  @click="userRegister" color="primary">Enviar</v-btn>
+    </v-container>
+  </v-form>
+  <v-snackbar
+      v-model="snackbar"
+      :timeout="timeout"
+    >
+      {{ text }}
+      <v-btn
+        color="blue"
+        text
+        @click="snackbar = false"
+      >
+        Close
+      </v-btn>
+    </v-snackbar>
+</section>
+

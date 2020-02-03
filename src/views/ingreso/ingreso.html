@@ -1,0 +1,33 @@
+
+<section class="ingreso">
+  <v-row>
+    <v-col class="form-user">
+      <h1>Ingreso de usuarios</h1>
+      <v-form  v-model="validForm" id="myform">
+        <v-container>
+          <v-row>
+            <v-col cols="12" sm="6">
+              <v-text-field
+                label="correo"
+                single-line
+                :rules="nameRules"
+                v-model="email"
+              ></v-text-field>
+            </v-col>
+            <v-col cols="12" sm="6">
+              <v-text-field
+                label="password"
+                single-line
+                type="password"
+                v-model="data.password"
+                :rules="nameRules"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+          <v-btn :disabled="!validForm"  @click="logIn" color="primary">Enviar</v-btn>
+          <p>{{error}}</p>
+        </v-container>
+      </v-form>
+    </v-col>
+  </v-row>
+</section>
